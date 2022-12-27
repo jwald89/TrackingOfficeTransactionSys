@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             // $table->foreignId('user_id')->constrained('users');
-            $table->integer('obr_no');
-            $table->integer('dv_no');
+            $table->integer('obr_no')->unique();
+            $table->integer('dv_no')->unique();
             $table->longText('particular');
             $table->double('amount', 8, 2);
             $table->double('total_amt', 8, 2);

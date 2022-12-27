@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+
+    public $primaryKey = 'obr_no';
+
+    public $inrementing = false;
+
+    public $keyType = 'string';
 }

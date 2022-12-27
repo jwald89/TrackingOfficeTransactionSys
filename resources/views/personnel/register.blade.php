@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid mt-4">
-        <div class="container">
+
             <div class="card col-lg-8 mx-auto">
                 <div class="card-body">
                     <form action="{{ route('store.user') }}" method="POST">
@@ -60,7 +59,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+
 
 @endsection

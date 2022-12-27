@@ -24,8 +24,23 @@ Route::get('/register', [UserController::class, 'index']);
 
 Route::post('/register', [UserController::class, 'store'])->name('store.user');
 
-Route::get('/transaction-list', [TransactionController::class, 'index']);
 
-Route::get('/transaction-create', [TransactionController::class, 'create']);
 
-Route::post('/transaction-create', [TransactionController::class, 'store'])->name('store.transaction');
+Route::controller(TransactionController::class)->group(function() {
+    Route::get('/transaction-list', 'index')->name('transaction.index');
+
+    Route::get('/transaction-create', 'create');
+
+    Route::post('/transaction-create', 'store')->name('store.transaction');
+
+    Route::get('/transaction/{obr_no}/edit', 'edit')->name('edit.transaction');
+
+    Route::put('/transaction/{obr_no}/update', 'update')->name('update.transaction');
+
+    Route::delete('/transaction/{id}/delete', 'destroy')->name('delete.transaction');
+});
+
+
+Route::get('/test', function() {
+    return view('test');
+});
